@@ -1,5 +1,6 @@
 import React from "react";
 import SearchBar from "./SearchBar";
+import { rocketSVG } from "../constants/rocket";
 
 import {AiOutlineHome,AiOutlineSave} from "react-icons/ai"
 import {FiSettings,FiHelpCircle,FiTrash2} from "react-icons/fi"
@@ -43,7 +44,7 @@ const NavData = [
 const Sidebar = () => {
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full bg-white ">
+      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start">
@@ -52,7 +53,7 @@ const Sidebar = () => {
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-blue-400 dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400  dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open sidebar</span>
                 <svg
@@ -69,29 +70,27 @@ const Sidebar = () => {
                   ></path>
                 </svg>
               </button>
-              <a href="/" className="flex ml-2 md:mr-24">
-                
-                <span className="bg-blue-500 w-auto px-4 py-1 rounded-lg self-center text-xl font-bold sm:text-2xl whitespace-nowrap text-white">
-                  ABC FIRM
+              <a href="https://flowbite.com" className="flex ml-2 md:mr-24">
+                <span className="self-center text-4xl font-bold sm:text-2xl whitespace-nowrap text-blue-900 ">
+                  abc firm
                 </span>
               </a>
-              <div className="ml-12">
+              <div className="md:ml-20 ml-10">
                 <SearchBar />
               </div>
             </div>
             <div className="flex items-center">
               <div className="flex items-center flex-row ml-3">
-              <svg
-                    className="w-6 h-6 text-gray-800 dark:text-white mx-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 14 20"
-                  >
-                    <path d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z" />
-                  </svg>
+                <svg
+                  className="w-6 h-6 text-gray-800  mx-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 14 20"
+                >
+                  <path d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z" />
+                </svg>
                 <div>
-                 
                   <button
                     type="button"
                     className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -111,10 +110,7 @@ const Sidebar = () => {
                   id="dropdown-user"
                 >
                   <div className="px-4 py-3" role="none">
-                    <p
-                      className="text-sm text-gray-900 dark:text-white"
-                      role="none"
-                    >
+                    <p className="text-sm text-gray-900 " role="none">
                       Neil Sims
                     </p>
                     <p
@@ -152,6 +148,28 @@ const Sidebar = () => {
           </>)}
            
           </ul>
+          <div
+            id="dropdown-cta"
+            className="p-4 mt-10 rounded-lg bg-blue-50 flex items-center flex-col "
+            role="alert"
+          >
+            <div dangerouslySetInnerHTML={{ __html: rocketSVG }} />
+            <p className="mb-2 text-sm font-bold text-black ">
+              Upgrade Account
+            </p>
+            <p
+              className="mb-3 text-blue-800 whitespace-nowrap"
+              style={{ fontSize: "14px" }}
+            >
+              Access to Unlimited Transcription
+            </p>
+            <button
+              className=" text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              type="button"
+            >
+              Upgrade
+            </button>
+          </div>
         </div>
       </aside>
     </>
