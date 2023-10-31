@@ -1,7 +1,10 @@
 import React from "react";
+import DashboardPage from "./Pages/dashboard";
 
 const App = () => {
-  return <h1 class="text-3xl font-bold underline">Hello world!</h1>;
+  return <>
+    <DashboardPage/>
+  </>
 };
 
 export default App;
