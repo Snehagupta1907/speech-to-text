@@ -71,8 +71,8 @@ const Sidebar = () => {
                 </svg>
               </button>
               <a href="https://flowbite.com" className="flex ml-2 md:mr-24">
-                <span className="self-center text-4xl font-bold sm:text-2xl whitespace-nowrap text-blue-900 ">
-                  abc firm
+                <span className="self-center text-4xl  sm:text-2xl font-bold whitespace-nowrap text-blue-900 ">
+                  ABC FIRM
                 </span>
               </a>
               <div className="md:ml-20 ml-10">
@@ -150,7 +150,7 @@ const Sidebar = () => {
           </ul>
           <div
             id="dropdown-cta"
-            className="p-4 mt-10 rounded-lg bg-blue-50 flex items-center flex-col "
+            className="p-4 fixed bottom-2 left-0 rounded-lg bg-blue-50 flex items-center flex-col "
             role="alert"
           >
             <div dangerouslySetInnerHTML={{ __html: rocketSVG }} />

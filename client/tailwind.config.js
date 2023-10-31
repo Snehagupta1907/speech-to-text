@@ -9,7 +9,6 @@ module.exports = {
       normal: '26px',
     },
     
-    
     extend: {
       colors: {
         Example: '#010101',

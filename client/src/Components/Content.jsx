@@ -91,7 +91,7 @@ const Content = () => {
               <p className="text-2xl font-normal text-black ml-3 mt-3">Saved</p>
             </div>
           </div>
-          <div className="flex flex-col items-start justify-center h-[100vh] mb-4  rounded-md bg-gray-50  mt-10">
+          <div className="flex flex-col items-start  mb-4  rounded-md bg-gray-50  mt-10">
           <h1 className="pt-5 mb-5 px-5 text-xl whitespace-nowrap font-bold h-12">Recent Files</h1>
             <Table />
           </div>
