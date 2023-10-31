@@ -19,9 +19,9 @@ const Content = () => {
             </button>
           </div>
           <div className="grid grid-cols-3 gap-4 mb-4">
-            <div className="flex items-start flex-col justify-center h-32 rounded bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-start flex-col justify-center shadow-sm border h-32 rounded bg-gray-50 ">
             <svg
-                className="w-6 h-6 text-gray-800 dark:text-white ml-2"
+                className="w-6 h-6 text-gray-800  ml-2"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -35,12 +35,12 @@ const Content = () => {
                   d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z"
                 />
               </svg>
-              <p className="text-2xl font-semibold text-white ml-3 mt-3">20</p>
-              <p className="text-2xl font-normal text-white ml-3 mt-3">Saved</p>
+              <p className="text-2xl  text-gray-800 ml-3 mt-3">20</p>
+              <p className="text-2xl text-gray-800 ml-3 mt-3">Saved</p>
             </div>
-            <div className="flex items-start flex-col justify-center h-32 rounded bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-start flex-col shadow-sm border justify-center h-32 rounded bg-gray-50 ">
             <svg
-                className="w-6 h-6 text-gray-800 dark:text-white ml-2"
+                className="w-6 h-6 text-gray-800  ml-2"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -54,12 +54,12 @@ const Content = () => {
                   d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z"
                 />
               </svg>
-              <p className="text-2xl font-semibold text-white ml-3 mt-3">20</p>
-              <p className="text-2xl font-normal text-white ml-3 mt-3">Saved</p>
+              <p className="text-2xl font-bold text-gray-800   ml-3 mt-3">20</p>
+              <p className="text-2xl font-bold text-gray-800 ml-3 mt-3">Saved</p>
             </div>
-            <div className="flex items-start flex-col justify-center h-32 rounded bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-start flex-col  shadow-sm border justify-center h-32 rounded bg-gray-50 text-gray-800 ">
               <svg
-                className="w-6 h-6 text-gray-800 dark:text-white ml-2"
+                className="w-6 h-6 text-gray-800 ml-2"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -73,12 +73,12 @@ const Content = () => {
                   d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z"
                 />
               </svg>
-              <p className="text-2xl font-semibold text-white ml-3 mt-3">20</p>
-              <p className="text-2xl font-normal text-white ml-3 mt-3">Saved</p>
+              <p className="text-2xl  text-gray-800 font-bold ml-3 mt-3">20</p>
+              <p className="text-2xl font-normal text-gray-800 font-bold ml-3 mt-3">Saved</p>
               
             </div>
           </div>
-          <div className="flex items-center justify-center h-[100vh] mb-4 rounded bg-gray-50 dark:bg-gray-800 mt-10">
+          <div className="flex  justify-center h-[100vh] mb-4 rounded bg-gray-50 md:bg-white">
             <Table />
           </div>
         </div>
