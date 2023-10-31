@@ -1,7 +1,27 @@
 import React from "react";
+import { languages } from "../constants/constant";
+
+import { AssemblyAI } from "assemblyai";
+
+const client = new AssemblyAI({
+  token: "488f1577026a4fd58a090d39fa1cf685",
+});
+const audioUrl =
+  'https://storage.googleapis.com/aai-web-samples/5_common_sports_injuries.mp3'
 
 const Upload = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
+  const transcribeTheFile = async () => {
+    try {
+      const transcript = await client.transcripts.create({ audio_url: audioUrl })
+      if (transcript.status === 'error') {
+        console.log(transcript.error)
+      }
+      console.log(transcript.text);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className=" fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white rounded-lg shadow-lg ">
@@ -45,11 +65,12 @@ const Upload = ({ isOpen, onClose }) => {
                   id="languages"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 >
-                  <option selected>Default</option>
-                  <option value="US">United States</option>
-                  <option value="CA">Canada</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
+                  <option value="en_us" selected>
+                    Default
+                  </option>
+                  {languages.map((language) => (
+                    <option value={language.code}>{language.name}</option>
+                  ))}
                 </select>
               </div>
               <div>
@@ -87,9 +108,20 @@ const Upload = ({ isOpen, onClose }) => {
                 </div>
               </div>
               <div>
-            <label for="website" class="block mb-2 text-sm font-medium text-gray-900 ">Import From Link</label>
-            <input type="url" id="website" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Paste a Drobpox, Google Drive or Youtube URL here" required/>
-        </div>
+                <label
+                  for="website"
+                  class="block mb-2 text-sm font-medium text-gray-900 "
+                >
+                  Import From Link
+                </label>
+                <input
+                  type="url"
+                  id="website"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Paste a Drobpox, Google Drive or Youtube URL here"
+                  required
+                />
+              </div>
               <div className="flex justify-between">
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
@@ -115,7 +147,6 @@ const Upload = ({ isOpen, onClose }) => {
               >
                 Transcribe
               </button>
-              
             </form>
           </div>
         </div>

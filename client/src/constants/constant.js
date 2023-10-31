@@ -1,5 +1,35 @@
 import {AiOutlineHome,AiOutlineSave} from "react-icons/ai"
 import {FiSettings,FiHelpCircle,FiTrash2} from "react-icons/fi"
+export const languages=[
+  {
+    name:"Global English",
+    code:"en"
+  },{
+    name:"Australian English",
+    code:"en_au"
+  },{
+    name:"British English",
+    code:"en_uk"
+  },{
+    name:"Us English",
+    code:"en_us"
+  },{
+    name:"Spanish",
+    code:"es"
+  },{
+    name:"French",
+    code:"fr"
+  },{
+    name:"German",
+    code:"de"
+  },{
+    name:"Italian",
+    code:"it"
+  },{
+    name:"Hindi",
+    code:"hi"
+  }
+]
 export const NavData = [
   {
     id: 1,
