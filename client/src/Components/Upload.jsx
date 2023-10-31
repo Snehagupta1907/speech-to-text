@@ -3,12 +3,12 @@ import React from "react";
 const Upload = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
   return (
-    <div className="border border-red-400 fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg dark:bg-gray-700">
-        <div className="relative bg-white rounded-lg shadow border border-red-400 dark:bg-gray-700 md:w-[600px]">
+    <div className=" fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+      <div className="bg-white rounded-lg shadow-lg ">
+        <div className="relative bg-white rounded-lg shadow  md:w-[600px]">
           <button
             type="button"
-            className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
             data-modal-hide="authentication-modal"
             onClick={onClose}
           >
@@ -30,20 +30,20 @@ const Upload = ({ isOpen, onClose }) => {
             <span className="sr-only">Close modal</span>
           </button>
           <div className="px-6 py-6 lg:px-8">
-            <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+            <h1 className="mb-4 text-4xl font-bold text-gray-900 ">
               Transcribe File
             </h1>
             <form className="space-y-6" action="#">
               <div>
                 <label
                   for="languages"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   Transcription Language
                 </label>
                 <select
                   id="languages"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 >
                   <option selected>Default</option>
                   <option value="US">United States</option>
@@ -56,11 +56,11 @@ const Upload = ({ isOpen, onClose }) => {
                 <div class="flex items-center justify-center w-full">
                   <label
                     for="dropzone-file"
-                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 hover:bg-gray-100 "
                   >
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
                       <svg
-                        class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+                        class="w-8 h-8 mb-4 text-gray-500 "
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -74,11 +74,11 @@ const Upload = ({ isOpen, onClose }) => {
                           d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                         />
                       </svg>
-                      <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                      <p class="mb-2 text-sm text-gray-500 ">
                         <span class="font-semibold">Click to upload</span> or
                         drag and drop
                       </p>
-                      <p class="text-xs text-gray-500 dark:text-gray-400">
+                      <p class="text-xs text-gray-500 ">
                         SVG, PNG, JPG or GIF (MAX. 800x400px)
                       </p>
                     </div>
@@ -93,13 +93,13 @@ const Upload = ({ isOpen, onClose }) => {
                       id="remember"
                       type="checkbox"
                       value=""
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300  dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       required
                     />
                   </div>
                   <label
                     for="remember"
-                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    className="ml-2 text-sm font-medium text-gray-900 "
                   >
                     Speaker Identification
                   </label>
