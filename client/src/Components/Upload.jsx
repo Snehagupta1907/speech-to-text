@@ -1,27 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { languages } from "../constants/constant";
-
-import { AssemblyAI } from "assemblyai";
-
-const client = new AssemblyAI({
-  token: "488f1577026a4fd58a090d39fa1cf685",
-});
-const audioUrl =
-  'https://storage.googleapis.com/aai-web-samples/5_common_sports_injuries.mp3'
+import axios from "axios";
+import instance from "../utils/axiosInstance";
 
 const Upload = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
-  const transcribeTheFile = async () => {
-    try {
-      const transcript = await client.transcripts.create({ audio_url: audioUrl })
-      if (transcript.status === 'error') {
-        console.log(transcript.error)
-      }
-      console.log(transcript.text);
-    } catch (error) {
-      console.log(error)
-    }
+ 
+
+  const transcribtion = async () => {
+    const data = {
+      source_config: {
+        url: 'https://www.rev.ai/FTC_Sample_1.mp3'
+      },
+      metadata: 'This is a test'
+    };
+    
+    const headers = {
+      'Authorization': 'Bearer 02WnnpPYQyxrCyX5Il1euxQP4j1bQdKrgoW7zYMk15vQveCGzuU78TngoTLRyDezHO17c9oMAhgJv12seB-apoe9xUitc',
+      'Content-Type': 'application/json'
+    };
+    
+    axios.post('https://api.rev.ai/speechtotext/v1/jobs', data, { headers })
+      .then(response => {
+        console.log('Response:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
+  
   return (
     <div className=" fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white rounded-lg shadow-lg ">
@@ -81,7 +88,7 @@ const Upload = ({ isOpen, onClose }) => {
                   >
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
                       <svg
-                        class="w-8 h-8 mb-4 text-gray-500 "
+                        class="w-8 h-8 mb-4 text-blue-500 "
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -95,12 +102,13 @@ const Upload = ({ isOpen, onClose }) => {
                           d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                         />
                       </svg>
-                      <p class="mb-2 text-sm text-gray-500 ">
-                        <span class="font-semibold">Click to upload</span> or
+                      <p class="mb-2 text-[12px] text-gray-500 ">
+                        <span class="font-normal text-[12px] text-blue-500">Click to upload</span> or
                         drag and drop
                       </p>
-                      <p class="text-xs text-gray-500 ">
-                        SVG, PNG, JPG or GIF (MAX. 800x400px)
+                      <p class="text-[12px] text-gray-500 px-3 text-center">
+                      The maximum file size is 1GB for audio and 10GB for videos.
+Supported formats: mp3, mp4, wav, caf, aiff, avi, rmvb, flv, m4a, mov, wmv, wma
                       </p>
                     </div>
                     <input id="dropzone-file" type="file" class="hidden" />
@@ -142,7 +150,8 @@ const Upload = ({ isOpen, onClose }) => {
                 </div>
               </div>
               <button
-                type="submit"
+                onClick={()=>transcribtion()}
+
                 className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Transcribe
