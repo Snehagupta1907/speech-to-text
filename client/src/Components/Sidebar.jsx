@@ -53,7 +53,7 @@ const Sidebar = () => {
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400  dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-100  dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open sidebar</span>
                 <svg
@@ -139,7 +139,7 @@ const Sidebar = () => {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 dark:hover:bg-blue-400 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 dark:hover:bg-blue-100 group"
               >
                 {item.icon}
                 <span className="ml-3">{item.name}</span>
@@ -150,7 +150,7 @@ const Sidebar = () => {
           </ul>
           <div
             id="dropdown-cta"
-            className="p-4 fixed bottom-2 left-0 rounded-lg bg-blue-50 flex items-center flex-col "
+            className="p-4 fixed bottom- left-2 rounded-lg bg-blue-50 flex items-center flex-col "
             role="alert"
           >
             <div dangerouslySetInnerHTML={{ __html: rocketSVG }} />

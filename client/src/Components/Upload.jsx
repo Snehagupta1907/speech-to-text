@@ -1,6 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
+
 
 const Upload = ({ isOpen, onClose }) => {
+
+  const [file, setFile] = useState(null);
+  const [transcribedText, setTranscribedText] = useState(null);
+
+  const handleFileUpload = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const uploadFile = async () => {
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await axios.post('http://localhost:5000/upload', formData);
+      console.log(response)
+
+      if (response.data.upload_url) {
+        const data = { audio_url: response.data.upload_url };
+        const transcriptResponse = await axios.post('http://localhost:5000/transcript', data);
+        
+        pollForTranscription(transcriptResponse.data.id);
+      }
+    }
+  };
+
+  const pollForTranscription = async (transcriptId) => {
+    while (true) {
+      const response = await axios.get(`http://localhost:5000/transcript/${transcriptId}`);
+
+      if (response.data.status === 'completed') {
+        setTranscribedText(response.data.text);
+        break;
+      }
+
+      if (response.data.status === 'error') {
+        console.error(`Transcription failed: ${response.data.error}`);
+        break;
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+    }
+  };
+
+
   if (!isOpen) return null;
   return (
     <div className=" fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
@@ -82,7 +128,7 @@ const Upload = ({ isOpen, onClose }) => {
                         SVG, PNG, JPG or GIF (MAX. 800x400px)
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" class="hidden" />
+                    <input id="dropzone-file" type="file" accept=".mp3, .mp4" onChange={handleFileUpload} class="hidden" />
                   </label>
                 </div>
               </div>
@@ -111,6 +157,7 @@ const Upload = ({ isOpen, onClose }) => {
               </div>
               <button
                 type="submit"
+                onClick={uploadFile}
                 className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Transcribe
